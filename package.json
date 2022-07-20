@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "awika portfolio - website automationpractice automated tesing using cypress",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "parse": "^3.4.3"
+  },
   "devDependencies": {
     "cypress": "^10.3.1"
   },
