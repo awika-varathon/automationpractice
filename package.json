@@ -1,0 +1,24 @@
+{
+  "name": "awika-automationpractice",
+  "version": "1.0.0",
+  "description": "awika portfolio - website automationpractice automated tesing using cypress",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "cypress": "^10.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awika-varathon/automationpractice.git"
+  },
+  "author": "awika varathon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awika-varathon/automationpractice/issues"
+  },
+  "homepage": "https://github.com/awika-varathon/automationpractice#readme"
+}
