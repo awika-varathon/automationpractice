@@ -11,6 +11,8 @@ module.exports = defineConfig({
         "PASSWORD": "automatedTest",
         "USER_NAME": "Automated Test",
     },
+    viewportWidth: 1440,
+    viewportHeight: 780, 
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
