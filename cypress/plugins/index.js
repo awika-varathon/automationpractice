@@ -54,6 +54,17 @@ module.exports = (on, config) => {
             tempVariables = {}
             return null
         },
-        'readXlsx': readXlsx.read
+        'readXlsx': readXlsx.read,
+        stepPaymentGetOrderReference: () => {
+            cy.get('.box')
+                .then($text => {
+                    const orderText = $text.text().split('reference ').pop().split(' ').shift();
+                    // orderText = orderText.split(' ').shift();
+                    console.log($text.text());
+                    console.log(orderText);
+                    // cy.wrap(orderText).as('refNumber');
+                    return orderText;
+            });
+        }
     })
 }

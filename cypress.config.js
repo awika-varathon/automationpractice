@@ -15,6 +15,14 @@ module.exports = defineConfig({
     viewportHeight: 780, 
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      on('task', {
+        setOrderReferenceDetail: (val) => {
+          return (href = val)
+        },
+        getOrderReferenceDetail: () => {
+          return href
+        },
+      })
     },
   },
 });
