@@ -1,4 +1,5 @@
 const { defineConfig } = require("cypress");
+const readXlsx = require('./cypress/plugins/read-xlsx')
 
 module.exports = defineConfig({
   e2e: {
@@ -14,18 +15,31 @@ module.exports = defineConfig({
     },
     viewportWidth: 1440,
     viewportHeight: 780, 
-    defaultCommandTimeout: 5000,
+    defaultCommandTimeout: 20000,
     responseTimeout: 50000,
     requestTimeout: 50000,
+    watchForFileChanges: false,
     setupNodeEvents(on, config) {
       // implement node event listeners here
       on('task', {
-        setOrderReferenceDetail: (val) => {
+        setOrderReferenceObject: (val) => {
           return (href = val)
         },
-        getOrderReferenceDetail: () => {
+        getOrderReferenceObject: () => {
           return href
         },
+        setTempVariable: ({ name, value }) => {
+          tempVariables[name] = value
+          return null
+        },
+        getTempVariable: ({ name }) => {
+          return tempVariables[name] || null
+        },
+        clearTempVariables: () => {
+          tempVariables = {}
+          return null
+        },
+        'readXlsx': readXlsx.read
       })
     },
   },

@@ -1,0 +1,32 @@
+{
+    "My Address": {
+        "firstname": "Automated",
+        "lastname": "Test",
+        "company": "",
+        "address1": "000, A Building B Street ",
+        "address2": "",
+        "city": "New York",
+        "state": "New York",
+        "postcode": "10001",
+        "country": "United States",
+        "phone": "",
+        "mobile": "00000000000",
+        "other": "",
+        "alias": "My Address"
+    },
+    "Invoice Address": {
+        "firstname": "Automated",
+        "lastname": "Test",
+        "company": "Test Company",
+        "address1": "111",
+        "address2": "1 Road, 2 Dictrict ",
+        "city": "Anahola",
+        "state": "Hawaii",
+        "postcode": "96703",
+        "country": "United States",
+        "phone": "1111111111",
+        "mobile": "",
+        "other": "",
+        "alias": "Invoice Address"
+    }
+}

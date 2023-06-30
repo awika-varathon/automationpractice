@@ -1,0 +1,20 @@
+[
+    { "name":"ID", "mappingName": "productId", "type": "text"},
+    { "name":"NAME", "mappingName": "productName", "type": "text"},
+    { "name":"SIZE", "mappingName": "productSize", "type": "text"},
+    { "name":"COLOR", "mappingName": "productColor", "type": "text"},
+    { "name":"AVAIL", "mappingName": "productAvail", "type": "text"},
+    { "name":"CATEGORY", "mappingName": "productCategory", "type": "text"},
+    { "name":"FULL_PRICE", "mappingName": "productFullPrice", "type": "price"},
+    { "name":"IS_PRICES_DROP", "mappingName": "productIsPriceDrop", "type": "text"},
+    { "name":"PRICE_DISCOUNT", "mappingName": "productPriceDiscount", "type": "price"},
+    { "name":"PERCENT_DISCOUNT", "mappingName": "productPercentDiscount", "type": "number"},
+    { "name":"REFERENCE", "mappingName": "productReference", "type": "text"},
+    { "name":"CONDITION", "mappingName": "productCondition", "type": "text"},
+    { "name":"DESCRIPTION", "mappingName": "productDescription", "type": "text"},
+    { "name":"COMPOSITION", "mappingName": "productComposition", "type": "text"},
+    { "name":"STYLES", "mappingName": "productStyle", "type": "text"},
+    { "name":"PROPERTIES", "mappingName": "productProperties", "type": "text"},
+    { "name":"MORE_INFO", "mappingName": "productMoreInfo", "type": "text"},
+    { "name":"MANUFACTURER", "mappingName": "productManufacture", "type": "text"}
+]

@@ -1,17 +1,250 @@
-<p class="alert alert-warning">Your shopping cart is empty.</p>
+<div id="block-order-detail" class="unvisible" style="display: block;">
+    <div class="box box-small clearfix">
+        <form id="submitReorder" action="http://automationpractice.com/index.php?controller=order" method="post"
+            class="submit">
+            <input type="hidden" value="466806" name="id_order">
+            <input type="hidden" value="" name="submitReorder">
+            <a href="#" onclick="$(this).closest('form').submit(); return false;"
+                class="button btn btn-default button-medium pull-right"><span>Reorder<i
+                        class="icon-chevron-right right"></i></span></a>
+            <p class="dark">
+                <strong>Order Reference QVDNYVYCF -- placed on 08/25/2022</strong>
+            </p>
 
-<td class="cart_quantity text-center">
-
-    <input type="hidden" value="3" name="quantity_3_13_0_722870_hidden">
-    <input size="2" type="text" autocomplete="off" class="cart_quantity_input form-control grey" value="1" name="quantity_3_13_0_722870">
-    <div class="cart_quantity_button clearfix">
-        <a rel="nofollow" class="cart_quantity_down btn btn-default button-minus" id="cart_quantity_down_3_13_0_722870"
-            href="http://automationpractice.com/index.php?controller=cart&amp;add=1&amp;id_product=3&amp;ipa=13&amp;id_address_delivery=722870&amp;op=down&amp;token=a0cd1249e690e9f3c398424de3b65bcf"
-            title="Subtract">
-            <span><i class="icon-minus"></i></span>
-        </a>
-        <a rel="nofollow" class="cart_quantity_up btn btn-default button-plus" id="cart_quantity_up_3_13_0_722870"
-            href="http://automationpractice.com/index.php?controller=cart&amp;add=1&amp;id_product=3&amp;ipa=13&amp;id_address_delivery=722870&amp;token=a0cd1249e690e9f3c398424de3b65bcf"
-            title="Add"><span><i class="icon-plus"></i></span></a>
+        </form>
     </div>
-</td>
+    <div class="info-order box">
+        <p><strong class="dark">Carrier</strong> My carrier</p>
+        <p><strong class="dark">Payment method</strong> <span class="color-myaccount">Payment by check</span></p>
+        <p>
+            <i class="icon-file-text"></i>
+            <a target="_blank"
+                href="http://automationpractice.com/index.php?controller=pdf-invoice?id_order=466806">Download your
+                invoice as a PDF file.</a>
+        </p>
+    </div>
+
+    <h1 class="page-heading">Follow your order's status step-by-step</h1>
+    <div class="table_block">
+        <table class="detail_step_by_step table table-bordered">
+            <thead>
+                <tr>
+                    <th class="first_item">Date</th>
+                    <th class="last_item">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="first_item item">
+                    <td class="step-by-step-date">08/25/2022</td>
+                    <td><span style="background-color:#FF69B4; border-color:#FF69B4;" class="label dark">On
+                            backorder</span></td>
+                </tr>
+                <tr class="last_item alternate_item">
+                    <td class="step-by-step-date">08/25/2022</td>
+                    <td><span style="background-color:#4169E1; border-color:#4169E1;" class="label">Awaiting cheque
+                            payment</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="adresses_bloc">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <ul class="address alternate_item box">
+                    <li>
+                        <h3 class="page-subheading">Delivery address (My address)</h3>
+                    </li>
+                    <li>
+                        <span class="address_firstname">Automated</span>
+                        <span class="address_lastname">Test</span>
+                    </li>
+                    <li class="address_company"></li>
+                    <li>
+                        <span class="address_address1">000, A Building B Street</span>
+                        <span class="address_address2"></span>
+                    </li>
+                    <li>
+                        <span class="address_city">New York,</span>
+                        <span class="address_State:name">New York</span>
+                        <span class="address_postcode">10001</span>
+                    </li>
+                    <li><span class="address_Country:name">United States</span></li>
+                    <li><span class="address_phone"></span></li>
+                    <li class="address_phone_mobile">00000000000</li>
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <ul class="address item  box">
+                    <li>
+                        <h3 class="page-subheading">Invoice address (My address)</h3>
+                    </li>
+                    <li>
+                        <span class="address_firstname">Automated</span>
+                        <span class="address_lastname">Test</span>
+                    </li>
+                    <li class="address_company"></li>
+                    <li>
+                        <span class="address_address1">000, A Building B Street </span>
+                        <span class="address_address2"></span>
+                    </li>
+                    <li>
+                        <span class="address_city">New York,</span>
+                        <span class="address_State:name">New York</span>
+                        <span class="address_postcode">10001</span>
+                    </li>
+                    <li><span class="address_Country:name">United States</span></li>
+                    <li><span class="address_phone"></span></li>
+                    <li class="address_phone_mobile">00000000000</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <form action="http://automationpractice.com/index.php?controller=order-follow" method="post">
+        <div id="order-detail-content" class="table_block table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="first_item">Reference</th>
+                        <th class="item">Product</th>
+                        <th class="item">Quantity</th>
+                        <th class="item">Unit price</th>
+                        <th class="last_item">Total price</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr class="item">
+                        <td colspan="1"><strong>Items (tax excl.)</strong></td>
+                        <td colspan="4"><span class="price">$45.49</span></td>
+                    </tr>
+                    <tr class="item">
+                        <td colspan="1"><strong>Items (tax incl.) </strong></td>
+                        <td colspan="4"><span class="price">$45.49</span></td>
+                    </tr>
+                    <tr class="item">
+                        <td colspan="1"><strong>Shipping and handling (tax incl.) </strong></td>
+                        <td colspan="4"><span class="price-shipping">$2.00</span></td>
+                    </tr>
+                    <tr class="totalprice item">
+                        <td colspan="1"><strong>Total</strong></td>
+                        <td colspan="4"><span class="price">$47.49</span></td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <!-- Customized products -->
+                    <!-- Classic products -->
+                    <tr class="item">
+                        <td><label for="cb_556444">demo_5</label></td>
+                        <td class="bold">
+                            <label for="cb_556444">Printed Summer Dress - Color : Yellow, Size : S</label>
+                        </td>
+                        <td class="return_quantity">
+                            <input class="order_qte_input form-control grey" name="order_qte_input[556444]" type="text"
+                                size="2" value="1">
+                            <div class="clearfix return_quantity_buttons">
+                                <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i
+                                            class="icon-minus"></i></span></a>
+                                <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i
+                                            class="icon-plus"></i></span></a>
+                            </div>
+                            <label for="cb_556444"><span class="order_qte_span editable">1</span></label>
+                        </td>
+                        <td class="price">
+                            <label for="cb_556444">$28.98</label>
+                        </td>
+                        <td class="price">
+                            <label for="cb_556444">$28.98</label>
+                        </td>
+                    </tr>
+                    <!-- Customized products -->
+                    <!-- Classic products -->
+                    <tr class="item">
+                        <td><label for="cb_556445">demo_1</label></td>
+                        <td class="bold">
+                            <label for="cb_556445">Faded Short Sleeve T-shirts - Color : Blue, Size : L</label>
+                        </td>
+                        <td class="return_quantity">
+                            <input class="order_qte_input form-control grey" name="order_qte_input[556445]" type="text"
+                                size="2" value="1">
+                            <div class="clearfix return_quantity_buttons">
+                                <a href="#" class="return_quantity_down btn btn-default button-minus"><span><i
+                                            class="icon-minus"></i></span></a>
+                                <a href="#" class="return_quantity_up btn btn-default button-plus"><span><i
+                                            class="icon-plus"></i></span></a>
+                            </div>
+                            <label for="cb_556445"><span class="order_qte_span editable">1</span></label>
+                        </td>
+                        <td class="price">
+                            <label for="cb_556445">$16.51</label>
+                        </td>
+                        <td class="price">
+                            <label for="cb_556445">$16.51</label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+
+    <table class="table table-bordered footab footable-loaded footable tablet">
+        <thead>
+            <tr>
+                <th class="first_item footable-sortable footable-first-column">Date<span
+                        class="footable-sort-indicator"></span></th>
+                <th class="item" data-sort-ignore="true">Carrier</th>
+                <th data-hide="phone" class="item footable-sortable">Weight<span class="footable-sort-indicator"></span>
+                </th>
+                <th data-hide="phone" class="item footable-sortable">Shipping cost<span
+                        class="footable-sort-indicator"></span></th>
+                <th data-hide="phone" class="last_item footable-last-column" data-sort-ignore="true">Tracking number
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="item">
+                <td data-value="20220825111326" class="footable-first-column"><span
+                        class="footable-toggle"></span>08/25/2022</td>
+                <td>My carrier</td>
+                <td data-value="0">-</td>
+                <td data-value="2.000000">$2.00</td>
+                <td class="footable-last-column"><span id="shipping_number_show">-</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <form action="http://automationpractice.com/index.php?controller=order-detail" method="post" class="std"
+        id="sendOrderMessage">
+        <h3 class="page-heading bottom-indent">Add a message</h3>
+        <p>If you would like to add a comment about your order, please write it in the field below.</p>
+        <p class="form-group">
+            <label for="id_product">Product</label>
+            <select name="id_product" class="form-control">
+                <option value="0">-- Choose --</option>
+                <option value="5">Printed Summer Dress - Color : Yellow, Size : S</option>
+                <option value="1">Faded Short Sleeve T-shirts - Color : Blue, Size : L</option>
+            </select>
+        </p>
+        <p class="form-group">
+            <textarea class="form-control" cols="67" rows="3" name="msgText"></textarea>
+        </p>
+        <div class="submit">
+            <input type="hidden" name="id_order" value="466806">
+            <input type="submit" class="unvisible" name="submitMessage" value="Send">
+            <button type="submit" name="submitMessage" class="button btn btn-default button-medium"><span>Send<i
+                        class="icon-chevron-right right"></i></span></button>
+        </div>
+    </form>
+</div>
+
+
+<div id="address_invoice_form" class="select form-group selector1" style="display: block;">
+    <label for="id_address_invoice" class="strong">Choose a billing address:</label>
+    <div class="selector" id="uniform-id_address_invoice" style="width: 266.5px;">
+        <span style="width: 256.5px; user-select: none;">Invoice Address</span>
+        <select name="id_address_invoice" id="id_address_invoice" class="address_select form-control">
+            <option value="744871" selected="selected">Invoice Address</option>
+            <option value="738779">My address</option>
+        </select></div><span class="waitimage" style="display: none;"></span>
+</div>

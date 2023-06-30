@@ -1,0 +1,344 @@
+{
+    "card": {
+        "name": "card",
+        "mainElement": "",
+        "type": "element",
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".product-container",
+                "checkElement": [
+                    { "key": "name", "id": ".product-name", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "price", "id": ".content_price .price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "productAvail", "id": ".availability link", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": true, "checkShowHide": false},
+                    { "key": "color-size", "id": ".product-atributes a", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false} 
+                ]
+            }
+        ]
+    },
+    "productDetail": {
+        "name": "productDetail",
+        "mainElement": "",
+        "type": "element",
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".primary_block",
+                "checkElement": [
+                    { "key": "name", "id": ".pb-center-column h1[itemprop='name']", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "productReference", "id": ".pb-center-column p[itemprop='sku']", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "price", "id": ".box-info-product p[itemprop='price']", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "headerCart": {
+        "name": "headerCart",
+        "mainElement": "",
+        "type": "element",
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".cart-info",
+                "checkElement": [
+                    { "key": "qty", "id": ".quantity", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "name", "id": ".cart_block_product_name", "isMoney": false, "type": "attr[title]", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "color-size", "id": ".product-atributes a", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "price", "id": ".price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "headerCartTotal": {
+        "name": "headerCartTotal",
+        "mainElement": "",
+        "type": "element",
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".cart-prices",
+                "checkElement": [
+                    { "key": "totalShipping", "id": ".cart_block_shipping_cost", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalPrice", "id": ".cart_block_total", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "addProductWindow" : {
+        "name": "addProductWindow",
+        "mainElement": "",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".layer_cart_product .layer_cart_product_info",
+                "checkElement": [
+                    { "key": "name", "id": "#layer_cart_product_title", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "color-size", "id": "#layer_cart_product_attributes", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "qty", "id": "#layer_cart_product_quantity", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "price", "id": "#layer_cart_product_price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            },
+            {
+                "elementName": ".layer_cart_cart",
+                "checkElement": [
+                    { "key": "totalOrder", "id": ".ajax_cart_quantity", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalProducts", "id": ".ajax_block_products_total", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalShipping", "id": ".ajax_cart_shipping_cost", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalPrice", "id": ".ajax_block_cart_total", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "shoppingCartSummaryTbody" : {
+        "name": "shoppingCartSummaryTbody",
+        "mainElement": "table#cart_summary",
+        "type": "table", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "",
+                "checkElement": [
+                    { "key": "name", "id": "td.cart_description p.product-name a", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "productReference", "id": "td.cart_description .cart_ref", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "color-size-table", "id": "td.cart_description small a", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "productAvail", "id": "td.cart_avail .label-success", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": true, "checkShowHide": false},
+                    { "key": "qty", "id": "td.cart_quantity .cart_quantity_input", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "unitPrice", "id": "td.cart_unit .price .price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "productPercentDiscount", "id": "td.cart_unit .price-percent-reduction", "isMoney": true, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "productFullPrice", "id": "td.cart_unit .old-price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "price", "id": "td.cart_total .price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "shoppingCartSummaryTfoot" : {
+        "name": "shoppingCartSummaryTfoot",
+        "mainElement": "table#cart_summary",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "tfoot",
+                "checkElement": [
+                    { "key": "totalProducts", "id": "tr.cart_total_price td#total_product", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalShipping", "id": "tr.cart_total_delivery td#total_shipping", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalPrice", "id": "tr.cart_total_price td#total_price_without_tax", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalTax", "id": "tr.cart_total_tax td#total_tax", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalCart", "id": "tr.cart_total_price td#total_price_container #total_price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "addressDeliveryAddressElement": {
+        "name": "addressDeliveryAddressElement",
+        "mainElement": ".addresses",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "ul#address_delivery",
+                "checkElement": [
+                    { "key": "firstname", "id": "li.address_firstname", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "lastname", "id":"li.address_lastname", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "company", "id": "li.address_company", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "address1", "id": "li.address_address1", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address2", "id": "li.address_address2", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "city", "id":"li.address_city", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "state",  "id": "li.address_state_name" , "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false },
+                    { "key": "postcode", "id":"li.address_postcode", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "country", "id":"li.address_country_name", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "phone", "id":"li.address_phone", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "mobile", "id":"li.address_phone_mobile", "isMoney": false, "type": "text","matchType": "equal", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "other", "id":"li.address_other", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true}
+                ]
+            }
+        ]
+    },
+    "addressBillAddressElement": {
+        "name": "addressBillAddressElement",
+        "mainElement": ".addresses",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "ul#address_invoice",
+                "checkElement": [
+                    { "key": "firstname", "id": "li.address_firstname", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "lastname", "id":"li.address_lastname", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "company", "id": "li.address_company", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "address1", "id": "li.address_address1", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address2", "id": "li.address_address2", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "city", "id":"li.address_city", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "state",  "id": "li.address_state_name" , "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false },
+                    { "key": "postcode", "id":"li.address_postcode", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "country", "id":"li.address_country_name", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "phone", "id":"li.address_phone", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "mobile", "id":"li.address_phone_mobile", "isMoney": false, "type": "text","matchType": "equal", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "other", "id":"li.address_other", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true}
+                ]
+            }
+        ]
+    },
+    "orderHistoryTbody" : {
+        "name": "orderHistoryTbody",
+        "mainElement": "table#order-list",
+        "type": "table", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "tbody tr:eq(0)",
+                "checkElement": [
+                    { "key": "orderReference", "id": "td.history_link a", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderDate", "id": "td.history_date", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderPrice", "id": "td.history_price .price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderPaymentMethod", "id": "td.history_method", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": true, "checkShowHide": false},
+                    { "key": "orderStatus", "id": "td.history_state span", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "orderHistorySubmitReorderSection" : {
+        "name": "orderHistorySubmitReorderSection",
+        "mainElement": "#block-order-detail",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".box form#submitReorder",
+                "checkElement": [
+                    { "key": "orderReference", "id": "p", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderDate", "id": "p", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "orderHistoryPaymentMethodSection" : {
+        "name": "orderHistoryPaymentMethodSection",
+        "mainElement": "#block-order-detail",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": ".info-order",
+                "checkElement": [
+                    { "key": "orderCarrier", "id": "p:eq(0)", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderPaymentMethod", "id": "p:eq(1) span.color-myaccount", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": true, "checkShowHide": false}
+
+                ]
+            }
+        ]
+    },
+    "orderHistoryDeliveryAddressSection": {
+        "name": "orderHistoryDeliveryAddressSection",
+        "mainElement": ".adresses_bloc",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "ul.address:eq(0)",
+                "checkElement": [
+                    { "key": "firstname", "id": "li span.address_firstname", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "lastname", "id":"li span.address_lastname", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "company", "id": "li.address_company", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address1", "id": "li span.address_address1", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address2", "id": "li span.address_address2", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "city", "id":"li span.address_city", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "state",  "id": "li:eq(4) span:eq(1)" , "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false },
+                    { "key": "postcode", "id":"li span.address_postcode", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "country", "id":"li:eq(5) span", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "phone", "id":"li span.address_phone", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "mobile", "id":"li.address_phone_mobile", "isMoney": false, "type": "text","matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "other", "id":"li.address_other", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true}
+                ]
+            }
+        ]
+    },
+    "orderHistoryBillAddressSection": {
+        "name": "orderHistoryBillAddressSection",
+        "mainElement": ".adresses_bloc",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "ul.address:eq(1)",
+                "checkElement": [
+                    { "key": "firstname", "id": "li span.address_firstname", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "lastname", "id":"li span.address_lastname", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "company", "id": "li.address_company", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address1", "id": "li span.address_address1", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address2", "id": "li span.address_address2", "isMoney": false, "type": "text","matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "city", "id":"li span.address_city", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "state",  "id": "li:eq(4) span:eq(1)" , "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false },
+                    { "key": "postcode", "id":"li span.address_postcode", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "country", "id":"li:eq(5) span", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "phone", "id":"li span.address_phone", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "mobile", "id":"li.address_phone_mobile", "isMoney": false, "type": "text","matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "other", "id":"li.address_other", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true}
+                ]
+            }
+        ]
+    },
+    "orderHistoryOrderDetailTbody" : {
+        "name": "orderHistoryOrderDetailTbody",
+        "mainElement": "#block-order-detail #order-detail-content table",
+        "type": "table", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "tbody tr",
+                "checkElement": [
+                    { "key": "productReference", "id": "td:eq(0) label", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "name-color-size-table", "id": "td:eq(1) label", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "qty", "id": "td:eq(2) label span.order_qte_span", "isMoney": false, "type":  "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "unitPrice", "id": "td:eq(3) label", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "price", "id": "td:eq(4) label", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}                    
+                ]
+            }
+        ]
+    },
+    "orderHistoryOrderDetailTfoot" : {
+        "name": "orderHistoryOrderDetailTfoot",
+        "mainElement": "#block-order-detail #order-detail-content table",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "tfoot",
+                "checkElement": [
+                    { "key": "totalProducts", "id": "tr:eq(0) td:eq(1)", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalProductsWithTax", "id": "tr:eq(1) td:eq(1)", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalShipping", "id": "tr:eq(2) td:eq(1)", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalCart", "id": "tr:eq(3) td:eq(1)", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "orderHistoryFootableSection" : {
+        "name": "orderHistoryFootableSection",
+        "mainElement": "#block-order-detail table.footable-loaded",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "tbody tr:eq(0)",
+                "checkElement": [
+                    
+                    { "key": "orderDate", "id": "td:eq(0)", "isMoney": false, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderCarrier", "id": "td:eq(1)", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderWeight", "id": "td:eq(2)", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderShipping", "id": "td:eq(3)", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "orderTrackingNumber", "id": "td:eq(4)", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "yourAddressElement": {
+        "name": "yourAddressElement",
+        "mainElement": ".box",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "form#add_address",
+                "checkElement": [
+                    { "key": "firstname", "id": "#firstname", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "lastname", "id":"#lastname", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "company", "id": "#company", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address1", "id": "#address1", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "address2", "id": "#address2", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "city", "id":"#city", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "state",  "id": "#id_state" , "isMoney": false, "type": "select", "matchType": "equal", "toLowerCase": false, "checkShowHide": false },
+                    { "key": "postcode", "id":"#city", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "country", "id":"#id_country", "isMoney": false, "type": "select", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "phone", "id":"#phone", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "mobile", "id":"#mobile", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "other", "id":"#other", "isMoney": false, "type": "textarea", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "alias", "id":"#alias", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    }
+}
