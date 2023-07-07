@@ -99,7 +99,7 @@
                     { "key": "productAvail", "id": "td.cart_avail .label-success", "isMoney": false, "type": "text", "matchType": "equal", "toLowerCase": true, "checkShowHide": false},
                     { "key": "qty", "id": "td.cart_quantity .cart_quantity_input", "isMoney": false, "type": "input", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
                     { "key": "unitPrice", "id": "td.cart_unit .price .price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
-                    { "key": "productPercentDiscount", "id": "td.cart_unit .price-percent-reduction", "isMoney": true, "type": "text", "matchType": "contains", "toLowerCase": false, "checkShowHide": true},
+                    { "key": "productPercentDiscount", "id": "td.cart_unit .price-percent-reduction", "isMoney": false, "type": "discount", "matchType": "contains", "toLowerCase": false, "checkShowHide": true},
                     { "key": "productFullPrice", "id": "td.cart_unit .old-price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": true},
                     { "key": "price", "id": "td.cart_total .price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
                 ]
@@ -107,6 +107,21 @@
         ]
     },
     "shoppingCartSummaryTfoot" : {
+        "name": "shoppingCartSummaryTfoot",
+        "mainElement": "table#cart_summary",
+        "type": "element", 
+        "mappingCheckElementObject": [
+            {
+                "elementName": "tfoot",
+                "checkElement": [
+                    { "key": "totalProducts", "id": "tr.cart_total_price td#total_product", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalShipping", "id": "tr.cart_total_delivery td#total_shipping", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false},
+                    { "key": "totalCart", "id": "tr.cart_total_price td#total_price_container #total_price", "isMoney": true, "type": "text", "matchType": "equal", "toLowerCase": false, "checkShowHide": false}
+                ]
+            }
+        ]
+    },
+    "shoppingCartSummaryTfoot(old)" : {
         "name": "shoppingCartSummaryTfoot",
         "mainElement": "table#cart_summary",
         "type": "element", 

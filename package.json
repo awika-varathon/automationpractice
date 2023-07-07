@@ -10,11 +10,12 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "cypress": "^10.3.1"
+    "cypress": "^10.7.0",
+    "cypress-slow-down": "^1.2.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "test": "npx cypress run --browser chrome --env commandDelay=250 --spec 'cypress/e2e/e2eTest.cy.js'"
   },
   "repository": {
     "type": "git",

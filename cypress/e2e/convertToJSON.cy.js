@@ -34,7 +34,9 @@ describe('Convert data to JSON', () => {
 
                     // Format data by object's type 
                     if(mapping.type === 'price') {
-                        newObject[mapping.mappingName] =  row[mapping.name] ? Number(row[mapping.name]).toFixed(2) : '0.00';
+                        // [For New Website(.pl)] Price set as 0 decimal. Old Ver. is 2 decimal
+                        // newObject[mapping.mappingName] =  row[mapping.name] ? Number(row[mapping.name]).toFixed(2) : '0.00';
+                        newObject[mapping.mappingName] =  row[mapping.name] ? Number(row[mapping.name]).toFixed(0) : '0';
                     } else if(mapping.type === 'number') {
                         newObject[mapping.mappingName] =  row[mapping.name] ? Number(row[mapping.name]).toFixed(0) : '0';
                     } else {

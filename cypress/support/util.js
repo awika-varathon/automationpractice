@@ -32,7 +32,8 @@ export const getE2EtestCaseFromExcel = (testCaseName) => {
 
             // Set total's shipping cost and tax 
             // Note: Still can't find logic to calculated rate for shipping cost and tax
-            let totalShipping = 2;
+            // Note2: [For New Website (.pl)]: totalShipping is 7 old website is 2
+            let totalShipping = 7;
             const totalTax = 0;
 
             // Get latest order with source in order list array for calculated all total fields 
@@ -49,7 +50,7 @@ export const getE2EtestCaseFromExcel = (testCaseName) => {
             // Set this order's unit price and order's price to row for set in now order's list after
             // Note: order's unit price using for checking in SUMMARY-CART
             order['unitPrice'] = orderUnitPrice;
-            order['price'] = Number(orderPrice).toFixed(2);
+            order['price'] = Number(orderPrice).toFixed(0);
 
             // Loop convert some columns's order detail from string to array for using in test function
             // e.g. order['editThisOrderQtyFrom'] = 'productDetailInput[3], productDetailIcon[2]' => ['productDetailInput[3]', 'productDetailIcon[2]']
@@ -128,20 +129,21 @@ export const getE2EtestCaseFromExcel = (testCaseName) => {
             }
 
             // Set totalCart as totalPrice (totalProducts + totalShipping) + totalTax (Note: Still can't find logic how to calculated tax)
+             // [For New Website (.pl)]: 'Free shipping!' => 'To be determined'
             totalCart = totalPrice + totalTax;
             totalProductsWithTax = totalProducts + totalTax;
-            const totalShippingText = totalShipping === 0 ? 'Free shipping!' : Number(totalShipping).toFixed(2); 
+            const totalShippingText = totalShipping === 0 ? 'To be determined' : Number(totalShipping).toFixed(0); 
             console.log(Number(totalShippingText));
 
             // Set total price's detail's object
             const totalPriceDetail = {
                 totalOrder: totalOrder,
-                totalProducts: Number(totalProducts).toFixed(2),
+                totalProducts: Number(totalProducts).toFixed(0),
                 totalShipping: totalShippingText,
-                totalPrice: Number(totalPrice).toFixed(2),
-                totalTax: Number(totalTax).toFixed(2),
-                totalCart: Number(totalCart).toFixed(2),
-                totalProductsWithTax: Number(totalProductsWithTax).toFixed(2),
+                totalPrice: Number(totalPrice).toFixed(0),
+                totalTax: Number(totalTax).toFixed(0),
+                totalCart: Number(totalCart).toFixed(0),
+                totalProductsWithTax: Number(totalProductsWithTax).toFixed(0),
             }
             
             // Set full order's detail with this order's detail, product's detail, total price's detail and now order's lists and push to orderLists array
@@ -168,12 +170,12 @@ export const getE2EtestCaseFromExcel = (testCaseName) => {
                 const orderSummary = {};
                 orderSummary['nowOrderLists'] = [...nowOrderLists];
                 orderSummary['totalOrder'] = totalOrder;
-                orderSummary['totalProducts'] = Number(totalProducts).toFixed(2);
+                orderSummary['totalProducts'] = Number(totalProducts).toFixed(0);
                 orderSummary['totalShipping'] = totalShippingText;
-                orderSummary['totalPrice'] = Number(totalPrice).toFixed(2);
-                orderSummary['totalTax'] = Number(totalTax).toFixed(2),
-                orderSummary['totalCart'] = Number(totalCart).toFixed(2); 
-                orderSummary['totalProductsWithTax'] = Number(totalProductsWithTax).toFixed(2); 
+                orderSummary['totalPrice'] = Number(totalPrice).toFixed(0);
+                orderSummary['totalTax'] = Number(totalTax).toFixed(0),
+                orderSummary['totalCart'] = Number(totalCart).toFixed(0); 
+                orderSummary['totalProductsWithTax'] = Number(totalProductsWithTax).toFixed(0); 
 
                 testCaseDetail['orderSummary'] = orderSummary;
             }
@@ -201,7 +203,7 @@ export const removeTextLinebreaks = (str) => {
     // newStr = newStr.replaceAll(/\s/gm,'');
     newStr = newStr.replaceAll(/[\r\n\t]+/gm,'');
     return newStr 
-    // return str.replaceAll( /[\r\n\t]+/gm,'').replaceAll(/(&nbsp;)*/g,'');
+    // return str.replaceAll( /[\r\n\t]+/gm,'').replace(/(?:\r\n|\r|\n)/g, '').replaceAll(/(&nbsp;)*/g,'');
 }
 
 // ++++ Get Data From JSON & Pathfile Name ++++
@@ -299,7 +301,6 @@ export const loopCheckOrderDetailFromTableValues = ($table, mainElementName, now
 // Loop check product detail from element value is equal order detail or not which each main element has different check element so need to set check element's id and order detail object's key
 export const loopCheckElementAndCompareValues = ($div, object, order) => {
 
-    
     // Loop check product detail from element value is equal order detail
     // e.g. checkElement = [{ key: 'name', id: '#layer_cart_product_title', isMoney: false}, { key: 'color-size', id: '#layer_cart_product_attributes', isMoney: false}, { key: 'price', id: '#layer_cart_product_price', isMoney: true},]}, ... ];
     object['checkElement'].forEach(element => {
@@ -323,6 +324,15 @@ export const loopCheckElementAndCompareValues = ($div, object, order) => {
                 // elementValue = $div.find(element['id']).text();
                 // elementValue = element['key'] === 'productPercentDiscount' ? removeTextLinebreaks(elementValue) : elementValue;
                 // console.log('Text')
+            } else if(element['type'] === 'discount') {
+                // If element's type is 'discount', get value from text and replace all text line break, space and &nbsp;
+                // e.g. <li class="price-percent-reduction small">     &nbsp;-5%&nbsp;   </li>
+                elementValue = removeTextLinebreaks($div.find(element['id']).text()).replace(/ /g, '').replace(/(&nbsp;)*/g,'').replaceAll(' ','');
+
+                // Alternative way to spilt '-' and '%' to get only discount number
+                // elementValue = $div.find(element['id']).text().split('-').pop().split('%').shift();
+                // elementValue = '-' + elementValue + '%'
+                // console.log('discount')
             } else if(element['type'] === 'input') {
                 // If element's type is 'input', get value from value
                 elementValue = $div.find(element['id']).val();
@@ -338,10 +348,14 @@ export const loopCheckElementAndCompareValues = ($div, object, order) => {
             let baseValue = '';
             if(element['key'] === 'color-size') {
                 // If key is 'color-size', concat color and size with ', ' (e.g. baseValue = 'Orange, S')
-                baseValue = `${order['color']}, ${order['size']}`
+                // [For New Website (.pl)]: Changes to concat size and with ', ' (e.g. baseValue = ' S, Orange')
+                // baseValue = `${order['color']}, ${order['size']}`
+                baseValue = `${order['size']}, ${order['color']}`
             } else if(element['key'] === 'color-size-table') {
                 // If key is 'color-size-table', concat color and size with ', ' (e.g. baseValue = 'Color : Orange, Size : S')
-                baseValue = `Color : ${order['color']}, Size : ${order['size']}`
+                // [For New Website (.pl)]: Changes to concat size and with ', ' (e.g. baseValue = ' 'Size : S, Color : Orange')
+                // baseValue = `Color : ${order['color']}, Size : ${order['size']}`
+                baseValue = `Size : ${order['size']}, Color : ${order['color']}`
             } else if(element['key'] === 'name-color-size-table') {
                 // If key is 'name-color-size-table', concat name, color and size for this order's detail table format (e.g. baseValue = 'Printed Dress - Color : Orange, Size : S')
                 baseValue = `${order['name']} - Color : ${order['color']}, Size : ${order['size']}`
@@ -349,9 +363,19 @@ export const loopCheckElementAndCompareValues = ($div, object, order) => {
                 // If value is number, convert to string before compare
                 baseValue = Number(order[element['key']]).toString();
             } else if(element['isMoney']){
-                // If element's isMoney is true, Check if convert to number is number add '$' at front value, else set as order detail by element's key value (e.g baseValue = '$2.00', baseValue = 'Free shipping!')
-                baseValue = !isNaN(order[element['key']])  ? `$${order[element['key']]}` : order[element['key']];
-            } else {
+                // If element's isMoney is true, Check if convert to number is number add '$' at front value, else set as order detail by element's key value (e.g baseValue = '$2.00', baseValue = 'To be determined')
+                if(!isNaN(order[element['key']])) {
+                    baseValue = `$${order[element['key']]}`;
+                }else {
+                    baseValue = order[element['key']];
+                    element['matchType'] = 'contains';
+                }
+                // baseValue = !isNaN(order[element['key']])  ? `$${order[element['key']]}` : order[element['key']];
+            } else if(element['type'] === 'discount'){
+                // If element's type is 'discount', set as '-value%'
+                baseValue =  '-' + order[element['key']] + '%';
+            }
+            else {
                 // Else set as order detail by element's key value
                 baseValue =  order[element['key']];
             }

@@ -1,39 +1,23 @@
-## Welcome to GitHub Pages
+# automationPractice
 
-My Gitlab Page: awika-varathon.github.io/automationpractice
+**About:** Persolnal project practicing automation testing for web applications using Cypress
 
-<!-- You can use the [editor on GitHub](https://github.com/awika-varathon/portfolio/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+**Website:** 
+* 2023: [automationpractice.pl](https://www.automationpractice.pl/)
+* 2022: [automationpractice.com (No available)](http://www.automationpractice.com/)  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## How to use
+1. Clone the project from gitlab 
+2. Run install `npm install`
+3. Run test: 
+- Open Cypress: `npm run cypress:open` or `npx cypress open`
+- Run test from spec e2eTest.cy.js: `npm run test`
 
-### Markdown
+Note: With cypress ver 10 using config from `cypress.config.js` as global config 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Reference Plugin
+1. Plugin Read & Write Excelsheet: [Link](https://www.npmjs.com/package/xlsx)
+2. Plugin Slow Down Cypress Tests: [Link](https://github.com/bahmutov/cypress-slow-down)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/awika-varathon/portfolio/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out. -->
+## How To Test & Test Cases List
+**Project Github Wiki:** [Link](https://github.com/awika-varathon/automationpractice/wiki)
