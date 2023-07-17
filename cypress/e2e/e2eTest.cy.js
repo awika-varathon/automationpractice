@@ -4,10 +4,12 @@
 import {getE2EtestCaseFromExcel, convertOrderListValueCondition, getPageLinkURL} from '../support/util'
 import { slowCypressDown } from 'cypress-slow-down'
 
-const e2eTestCaseArray = ['e2e_a01']
+const e2eTestCaseArray = ['e2e_e01', 'e2e_e02']
 // add = 'e2e_a01', 'e2e_a02', 'e2e_a03', 'e2e_a04', 'e2e_a05', 'e2e_a06', 'e2e_a07'
 // delete = 'e2e_d01', 'e2e_d02', 'e2e_d03', 'e2e_d04'
 // edit = 'e2e_e01', 'e2e_e02'
+
+//Edit word 'process' to 'proceed'
 
 slowCypressDown();
 
@@ -104,9 +106,9 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
                     // cy.wait(Cypress.env('WAIT_TIME'));
 
                     // "Add Product" Window: Checking next step is checkout or select do action next order
-                    // if(order['processToCheckoutFrom'] === 'addProductWindow') {
-                    //     // "Add Product" Window: Click "Process to checkout" from "Add Product" Window
-                    //     cy.processToCheckoutFromAddProductWindow();
+                    // if(order['proceedToCheckoutFrom'] === 'addProductWindow') {
+                    //     // "Add Product" Window: Click "proceed to checkout" from "Add Product" Window
+                    //     cy.proceedToCheckoutFromAddProductWindow();
                     //     cy.wait(Cypress.env('WAIT_TIME'));
                     // } else {
                     //     // "Add Product" Window: Close "Add Product" Window
@@ -130,18 +132,18 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
 
                     } else if(order['deletedThisOrderFrom'] === 'shoppingCartSummary') {
 
-                        // Header Cart: Click "Process to checkout" from header's cart
-                        cy.doActionInHeaderCart({ type: 'processToCheckout' }); 
+                        // Header Cart: Click "Proceed to checkout" from header's cart
+                        cy.doActionInHeaderCart({ type: 'proceedToCheckout' }); 
                         cy.wait(Cypress.env('WAIT_TIME'));
 
                         // SHOPPING-CART-01.SUMMARY: Deleted this order from SHOPPING-CART table
                         cy.doActionInShoppingCartSummaryTable({ type: 'deletedThisOrder', order: order });
                         cy.wait(Cypress.env('WAIT_TIME'));
                     
-                        // [For New Website (.pl)]: Click body to close error popup and click "Process to checkout" from header's cart again to update delete order in table which not realtime likes old website
+                        // [For New Website (.pl)]: Click body to close error popup and click "Proceed to checkout" from header's cart again to update delete order in table which not realtime likes old website
                         cy.wait('@loadQuickview'); 
                         cy.get('body').click(0,0);
-                        cy.doActionInHeaderCart({ type: 'processToCheckout' }); 
+                        cy.doActionInHeaderCart({ type: 'proceedToCheckout' }); 
                         cy.wait(Cypress.env('WAIT_TIME'));
 
                         // SHOPPING-CART: Check all order's detail in SHOPPING-CART table
@@ -151,8 +153,8 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
 
                     }
                 } else if(order['action'] === 'edit') {
-                    // Header Cart: Click "Process to checkout" from header's cart
-                    cy.doActionInHeaderCart({ type: 'processToCheckout' }) 
+                    // Header Cart: Click "Proceed to checkout" from header's cart
+                    cy.doActionInHeaderCart({ type: 'proceedToCheckout' }) 
                     cy.wait(Cypress.env('WAIT_TIME'));
 
                     // SHOPPING-CART: Edited this order's qty from SHOPPING-CART table
@@ -168,9 +170,9 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
                 cy.doActionInHeaderCart({ type: 'checkOrdersDetail', order: order }) 
                 cy.wait(Cypress.env('WAIT_TIME'));  
                 
-                // Header Cart: Click "Process to checkout" from header's cart && Not at summary page
-                if(order['processToCheckoutFrom'] === 'cartHeader') {
-                    cy.doActionInHeaderCart({ type: 'processToCheckout' }) 
+                // Header Cart: Click "Proceed to checkout" from header's cart && Not at summary page
+                if(order['proceedToCheckoutFrom'] === 'cartHeader') {
+                    cy.doActionInHeaderCart({ type: 'proceedToCheckout' }) 
                     cy.wait(Cypress.env('WAIT_TIME'));
                 }
 
@@ -184,17 +186,17 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
                 .then(pageURL => {
                     console.log(pageURL);
 
-                    // Checking if not at SHOPPING-CART-01.SUMMARY page then clicking process to check from header's cart before checking order's detail
+                    // Checking if not at SHOPPING-CART-01.SUMMARY page then clicking 'Proceed to check' from header's cart before checking order's detail
                     // e.g. pageURL = 'http://automationpractice.pl/index.php?controller=order' 
                     if(!pageURL.includes(getPageLinkURL('shoppingCartSummary'))) {
-                        cy.doActionInHeaderCart({ type: 'processToCheckout' }) 
+                        cy.doActionInHeaderCart({ type: 'proceedToCheckout' }) 
                         cy.wait(Cypress.env('WAIT_TIME'));
                     }
                     
                     // SHOPPING-CART: Checking all order's detail in SHOPPING-CART table
                     cy.doActionInShoppingCartSummaryTable({ type: 'checkOrdersDetail', order: orderSummary });
                     
-                    // SHOPPING-CART: Click 'Process to checkout' Do only have order list in orderSummary
+                    // SHOPPING-CART: Click 'Proceed to checkout' Do only have order list in orderSummary
                     if(orderSummary['nowOrderLists'].length > 0) {
                         cy.get('.cart_navigation a[title="Proceed to checkout"]').click();
                     } 
@@ -212,8 +214,8 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
                 // SHOPPING-CART-03.ADDRESS: Choose delivery address and billing address and checking both detail in each ul
                 cy.doActionInShoppingCartAddress({deliveryAddress: testCaseDetail['deliveryAddress'], invoiceAddress: testCaseDetail['invoiceAddress']})
                 
-                // SHOPPING-CART-03.ADDRESS: Click Process to checkout
-                cy.processToCheckoutShoppingCartPage();
+                // SHOPPING-CART-03.ADDRESS: Click proceed to checkout
+                cy.proceedToCheckoutShoppingCartPage();
                 cy.scrollTo('bottom');
                 cy.wait(3000);
         
@@ -221,8 +223,8 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
                 // // SHOPPING-CART-04.SHIPPING: Checking 'I agree to the terms..'
                 // cy.get(`#uniform-cgv input[type="checkbox"]`).check();
 
-                // // SHOPPING-CART-04.SHIPPING: Click Process to checkout
-                // cy.processToCheckoutShoppingCartPage();
+                // // SHOPPING-CART-04.SHIPPING: Click 'Proceed to checkout'
+                // cy.proceedToCheckoutShoppingCartPage();
                 // cy.wait(Cypress.env('WAIT_TIME'));
         
                 // // ++++
@@ -236,8 +238,8 @@ e2eTestCaseArray.forEach((testCaseName, index) => {
                 //         expect($p).to.contain(testCaseDetail['paymentMethod'].toLowerCase());
                 // }); 
 
-                // // SHOPPING-CART-05.PAYMENT: Click Process to checkout
-                // cy.processToCheckoutShoppingCartPage();
+                // // SHOPPING-CART-05.PAYMENT: Click 'Proceed to checkout'
+                // cy.proceedToCheckoutShoppingCartPage();
                 // cy.wait(Cypress.env('WAIT_TIME'));
         
                 // // const orderSummary = testCaseDetail['orderSummary'];

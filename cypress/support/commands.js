@@ -260,12 +260,12 @@ Cypress.Commands.add('editProductQtyFromInputOrIcon', (editThisOrderQtyFrom, $ma
                     }
                 }
 
-                // [For New Website (.pl)]: If section 'table', wait till table update, click body to close error popup and click "Process to checkout" from header's cart again to update edit order in table which not realtime likes old website
+                // [For New Website (.pl)]: If section 'table', wait till table update, click body to close error popup and click "Proceed to checkout" from header's cart again to update edit order in table which not realtime likes old website
                 if (section === 'table') {
                     cy.wait('@loadQuickview');
                     cy.wait(Cypress.env('WAIT_TIME'));
                     cy.get('body').click(0, 0);
-                    cy.doActionInHeaderCart({ type: 'processToCheckout' });
+                    cy.doActionInHeaderCart({ type: 'proceedToCheckout' });
                     cy.wait(Cypress.env('WAIT_TIME'));
                 }
             });
@@ -298,13 +298,13 @@ Cypress.Commands.add('closedAddProductWindow', () => {
     cy.get('#layer_cart .layer_cart_product').find('.cross').click();
 });
 
-// "Add Product" Window: Process to checkout from "Add Product" Window
-Cypress.Commands.add('processToCheckoutFromAddProductWindow', () => {
+// "Add Product" Window: Do proceed to checkout from "Add Product" Window
+Cypress.Commands.add('proceedToCheckoutFromAddProductWindow', () => {
     cy.get('#layer_cart .layer_cart_cart').find('a[title="Proceed to checkout"]').click();
 });
 
 // ++++ Header's Cart Element ++++
-// Header Cart: Do action in header's cart which is 'processToCheckout', 'checkOrdersDetail' or 'deletedThisOrder', add css's style 'display: block' to 'cart_block' to show 'cart_block''s detail first
+// Header Cart: Do action in header's cart which is 'proceedToCheckout', 'checkOrdersDetail' or 'deletedThisOrder', add css's style 'display: block' to 'cart_block' to show 'cart_block''s detail first
 // e.g. options = { type: 'checkOrdersDetail', order: order }
 Cypress.Commands.add('doActionInHeaderCart', (options) => {
     cy.get('.header-container .shopping_cart .cart_block')
@@ -314,8 +314,8 @@ Cypress.Commands.add('doActionInHeaderCart', (options) => {
             const { order } = options;
             console.log(order)
 
-            if (options['type'] === 'processToCheckout') {
-                // Process to checkout : Click button's 'Process to checkout' from header's cart
+            if (options['type'] === 'proceedToCheckout') {
+                // Proceed to checkout : Click button's 'Proceed to checkout' from header's cart
                 cy.get($cart).find('.cart-buttons #button_order_cart').click();
             } else if (options['type'] === 'deletedThisOrder') {
 
@@ -471,8 +471,8 @@ Cypress.Commands.add('doActionInShoppingCartAddress', (options) => {
 });
 
 
-// SHOPPING-CART-All STEP: Click Process to checkout from each step
-Cypress.Commands.add('processToCheckoutShoppingCartPage', () => {
+// SHOPPING-CART-All STEP: Click button's 'Proceed to checkout' from each step
+Cypress.Commands.add('proceedToCheckoutShoppingCartPage', () => {
     cy.get('.cart_navigation button[type="submit"]').click();
 });
 
