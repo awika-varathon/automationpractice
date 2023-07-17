@@ -9,8 +9,6 @@ const e2eTestCaseArray = ['e2e_e01', 'e2e_e02']
 // delete = 'e2e_d01', 'e2e_d02', 'e2e_d03', 'e2e_d04'
 // edit = 'e2e_e01', 'e2e_e02'
 
-//Edit word 'process' to 'proceed'
-
 slowCypressDown();
 
 e2eTestCaseArray.forEach((testCaseName, index) => {
